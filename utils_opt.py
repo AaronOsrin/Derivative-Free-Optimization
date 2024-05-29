@@ -1,17 +1,18 @@
 import matplotlib.pyplot as plt
 import numpy as np
-def plot_function_values(*args):
+
+def plot_function_values(func_name, *args):
     plt.figure()
     for values, label in args:
         plt.plot(values, label=label)
     
     plt.xlabel('Iteration')
     plt.ylabel('Function Value')
-    plt.title('Function Values over Iterations')
+    plt.title(f'Function Values over Iterations - {func_name}')
     plt.legend()
     plt.show()
 
-def plot_contour_with_paths(func, limits, paths=[]):
+def plot_contour_with_paths(func, limits, func_name, paths=[]):
     x = np.linspace(limits[0], limits[1], 100)
     y = np.linspace(limits[2], limits[3], 100)
     X, Y = np.meshgrid(x, y)
@@ -25,6 +26,6 @@ def plot_contour_with_paths(func, limits, paths=[]):
 
     plt.xlabel('x')
     plt.ylabel('y')
-    plt.title('Contour plot with optimization paths')
+    plt.title(f'Contour plot with optimization paths - {func_name}')
     plt.legend()
     plt.show()
